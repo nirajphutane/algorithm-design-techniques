@@ -4,6 +4,20 @@ import 'dart:math';
 void main(final List<String> args) {
   print(Solution().maxProduct([2,3,-2,4])); // 6
   print(Solution().maxProduct([-2,0,-1])); // 0
+
+  print(Solution().maxProduct([-5]));              // -5
+  print(Solution().maxProduct([0]));               // 0
+  print(Solution().maxProduct([0, 2]));            // 2
+  print(Solution().maxProduct([2, 0, 3]));         // 3
+  print(Solution().maxProduct([3, -1, 4]));         // 4
+  print(Solution().maxProduct([5]));               // 5
+  print(Solution().maxProduct([0, -2, -3, 0]));    // 6
+  print(Solution().maxProduct([-1, -2, -3]));      // 6
+  print(Solution().maxProduct([1, -2, -3, 4, -1])); // 24
+  print(Solution().maxProduct([1, 2, 3, 4]));      // 24
+  print(Solution().maxProduct([-1, -2, -3, -4]));  // 24
+  print(Solution().maxProduct([2, -5, -2, -4, 3])); // 24
+  print(Solution().maxProduct([-2, 3, -4]));        // 24
 }
 
 class Solution {
