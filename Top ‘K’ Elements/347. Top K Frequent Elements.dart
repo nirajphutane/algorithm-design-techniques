@@ -22,38 +22,19 @@ class Solution {
       frequencies[num] = (frequencies[num]?? 0) +1;
     }
 
-    final List<List<int>> seed = List.generate(nums.length+1, (index) => []);
+    final List<List<int>> buckets = List.generate(nums.length+1, (index) => []);
     frequencies.forEach((key, value) {
-      seed[value].add(key);
+      buckets[value].add(key);
     });
 
     final List<int> result = List<int>.generate(k, (_) => -1);
     int idx = 0;
-    for (int i = seed.length-1; i >= 0 && idx < k; i--) {
-      for (int j = 0; j < seed[i].length && idx < k; j++) {
-        result[idx++] = seed[i][j];
+    for (int i = buckets.length-1; i >= 0 && idx < k; i--) {
+      for (int j = 0; j < buckets[i].length && idx < k; j++) {
+        result[idx++] = buckets[i][j];
       }
     }
 
     return result;
   }
-
-  // List<int> topKFrequent(final List<int> nums, final int k) {
-  //   final Map<int, int> frequencies = {};
-  //   for (int i = 0; i < nums.length; i++) {
-  //     frequencies[nums[i]] = (frequencies[nums[i]]?? 0) + 1;
-  //   }
-  //
-  //   final List<List<int>> buckets = List<List<int>>.generate(nums.length+1, (_) => []);
-  //   frequencies.forEach((num, count) { buckets[count].add(num); });
-  //
-  //   final List<int> result = [];
-  //   for (int i = buckets.length-1; i > 0 && result.length < k; i--) {
-  //     for (final int n in buckets[i]) {
-  //       result.add(n);
-  //       if (result.length == k) break;
-  //     }
-  //   }
-  //   return result;
-  // }
 }

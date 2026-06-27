@@ -20,7 +20,7 @@ class Solution {
     final PriorityQueue<Pair> pq = PriorityQueue((a, b) => ((nums1[a.first] + nums2[a.last]) > (nums1[b.first] + nums2[b.last])));
 
     final int size = min(nums1.length, k);
-    for (int i = 0; i < size && i < k; i++) {
+    for (int i = 0; i < size; i++) {
       pq.insert(Pair(i, 0));
     }
 

@@ -7,6 +7,42 @@ void main(final List<String> args) {
   list = [0];
   Solution().moveZeroes(list);
   print(list); // [0]
+
+  list = [1,2,3,0,0,0];
+  Solution().moveZeroes(list);
+  print(list); // [1,2,3,0,0,0]
+
+  list = [0,0,1,0,2,0,3];
+  Solution().moveZeroes(list);
+  print(list); // [1,2,3,0,0,0,0]
+
+  list = [0,0,0,0];
+  Solution().moveZeroes(list);
+  print(list); // [0,0,0,0]
+
+  list = [1,2,3,4,5];
+  Solution().moveZeroes(list);
+  print(list); // [1,2,3,4,5]
+
+  list = [0,1,2,3,4];
+  Solution().moveZeroes(list);
+  print(list); // [1,2,3,4,0]
+
+  list = [1,0,2,0,3,0,4,0,5];
+  Solution().moveZeroes(list);
+  print(list); // [1,2,3,4,5,0,0,0,0]
+
+  list = [0,1];
+  Solution().moveZeroes(list);
+  print(list); // [1,0]
+
+  list = [1,0];
+  Solution().moveZeroes(list);
+  print(list); // [1,0]
+
+  list = [];
+  Solution().moveZeroes(list);
+  print(list); // []
 }
 
 class Solution {

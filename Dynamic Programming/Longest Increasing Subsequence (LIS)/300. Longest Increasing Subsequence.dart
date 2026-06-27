@@ -39,59 +39,65 @@ class Solution {
   }
 }
 
-// class Solution {
-//
-//   int lengthOfLIS(final List<int> nums) {
-//
-//     final List<List<int>> dp = List<List<int>>.generate(nums.length+1, (_) => List<int>.filled(nums.length+1, 0));
-//
-//     for (int current = nums.length-1; current >= 0; current--) {
-//       for (int previous = current-1; previous >= -1; previous--) {
-//         final int skip = dp[current+1][previous+1];
-//         int take = 0;
-//         if (previous == -1 || nums[current] > nums[previous]) {
-//           take = 1 + dp[current+1][current+1];
-//         }
-//         dp[current][previous+1] = max(skip, take);
-//       }
-//     }
-//
-//     return dp.first.first;
-//   }
-// }
+/*
+class Solution {
 
-// class Solution {
-//
-//   int lengthOfLIS(final List<int> nums) {
-//
-//     final Map<String, int> memo = {};
-//     int dp(final int currentIndex, final int previousIndex) {
-//       final String key = '$currentIndex:$previousIndex';
-//
-//       if (memo.containsKey(key)) {
-//         return memo[key]!;
-//       }
-//
-//       if (currentIndex == nums.length) {
-//         return 0;
-//       }
-//
-//       /*final int skip = dp(currentIndex+1, previousIndex);
-//       int take = 0;
-//       if ((previousIndex == -1) || (nums[currentIndex] > nums[previousIndex])) {
-//         take = 1 + dp(currentIndex+1, currentIndex);
-//       }
-//       memo[key] = max(skip, take);*/
-//
-//       int lis = dp(currentIndex+1, previousIndex);
-//       if ((previousIndex == -1) || (nums[currentIndex] > nums[previousIndex])) {
-//         lis = max(lis, 1 + dp(currentIndex+1, currentIndex));
-//       }
-//       memo[key] = lis;
-//
-//       return lis;
-//     }
-//
-//     return dp(0, -1);
-//   }
-// }
+  int lengthOfLIS(final List<int> nums) {
+
+    final List<List<int>> dp = List<List<int>>.generate(nums.length+1, (_) => List<int>.filled(nums.length+1, 0));
+
+    for (int current = nums.length-1; current >= 0; current--) {
+      for (int previous = current-1; previous >= -1; previous--) {
+        final int skip = dp[current+1][previous+1];
+        int take = 0;
+        if (previous == -1 || nums[current] > nums[previous]) {
+          take = 1 + dp[current+1][current+1];
+        }
+        dp[current][previous+1] = max(skip, take);
+      }
+    }
+
+    return dp.first.first;
+  }
+}
+*/
+
+/*
+class Solution {
+
+  int lengthOfLIS(final List<int> nums) {
+
+    final Map<String, int> memo = {};
+    int dp(final int currentIndex, final int previousIndex) {
+      final String key = '$currentIndex:$previousIndex';
+
+      if (memo.containsKey(key)) {
+        return memo[key]!;
+      }
+
+      if (currentIndex == nums.length) {
+        return 0;
+      }
+
+      /*
+      final int skip = dp(currentIndex+1, previousIndex);
+      int take = 0;
+      if ((previousIndex == -1) || (nums[currentIndex] > nums[previousIndex])) {
+        take = 1 + dp(currentIndex+1, currentIndex);
+      }
+      memo[key] = max(skip, take);
+      */
+
+      int lis = dp(currentIndex+1, previousIndex);
+      if ((previousIndex == -1) || (nums[currentIndex] > nums[previousIndex])) {
+        lis = max(lis, 1 + dp(currentIndex+1, currentIndex));
+      }
+      memo[key] = lis;
+
+      return lis;
+    }
+
+    return dp(0, -1);
+  }
+}
+*/

@@ -30,36 +30,39 @@ class Solution {
 
     return result;
   }
-
-  // List<int> nextGreaterElements(final List<int> nums) {
-  //   final List<int> result = List<int>.filled(nums.length, -1);
-  //
-  //   final List<int> monotonicStack = [];
-  //   for (int i = (2 * nums.length)-1; i >= 0; i--) {
-  //
-  //     final int index = i % nums.length;
-  //
-  //     while (monotonicStack.isNotEmpty && nums[monotonicStack.last] <= nums[index]) {
-  //       monotonicStack.removeLast();
-  //     }
-  //
-  //     // if (monotonicStack.isNotEmpty) {
-  //     //   result[index] = nums[monotonicStack.last];
-  //     // } else {
-  //     //   result[index] = -1;
-  //     // }
-  //
-  //     if (i < nums.length) {
-  //       if (monotonicStack.isNotEmpty) {
-  //         result[index] = nums[monotonicStack.last];
-  //       } /*else {
-  //         result[index] = -1;
-  //       }*/
-  //     }
-  //
-  //     monotonicStack.add(index);
-  //   }
-  //
-  //   return result;
-  // }
 }
+
+// class Solution {
+//
+//   List<int> nextGreaterElements(final List<int> nums) {
+//     final List<int> result = List<int>.filled(nums.length, -1);
+//
+//     final List<int> monotonicStack = [];
+//     for (int i = (2 * nums.length)-1; i >= 0; i--) {
+//
+//       final int index = i % nums.length;
+//
+//       while (monotonicStack.isNotEmpty && nums[monotonicStack.last] <= nums[index]) {
+//         monotonicStack.removeLast();
+//       }
+//
+//       // if (monotonicStack.isNotEmpty) {
+//       //   result[index] = nums[monotonicStack.last];
+//       // } else {
+//       //   result[index] = -1;
+//       // }
+//
+//       if (i < nums.length) {
+//         if (monotonicStack.isNotEmpty) {
+//           result[index] = nums[monotonicStack.last];
+//         } /*else {
+//           result[index] = -1;
+//         }*/
+//       }
+//
+//       monotonicStack.add(index);
+//     }
+//
+//     return result;
+//   }
+// }

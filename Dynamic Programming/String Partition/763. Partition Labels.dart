@@ -17,6 +17,12 @@ void main(final List<String> args) {
 
 class Solution {
   List<int> partitionLabels(final String s) {
+    return [];
+  }
+}
+
+/*class Solution {
+  List<int> partitionLabels(final String s) {
     final List<int> result = [];
 
     final Map<String, int> map = {};
@@ -34,27 +40,4 @@ class Solution {
 
     return result;
   }
-}
-
-// class Solution {
-//   List<int> partitionLabels(final String s) {
-//     final List<int> result = [];
-//
-//     final Map<String, int> map = {};
-//     for (int i = 0; i < s.length; i++) {
-//       map[s[i]] = i;
-//     }
-//
-//     int size = 0, end = 0;
-//     for (int i = 0; i < s.length; i++) {
-//       size++;
-//       end = max(end, map[s[i]]!);
-//       if (i == end) {
-//         result.add(size);
-//         size = 0;
-//       }
-//     }
-//
-//     return result;
-//   }
-// }
+}*/

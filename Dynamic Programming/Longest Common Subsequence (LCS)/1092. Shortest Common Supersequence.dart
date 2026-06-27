@@ -25,7 +25,7 @@ class Solution {
       }
     }
 
-    final List<String> res = List<String>.filled((str1.length+str2.length)-dp.last.last, '+');
+    final List<String> res = List<String>.filled((str1.length+str2.length)-dp.last.last, '');
     int i = res.length, r = str1.length, c = str2.length;
     while (r > 0 && c > 0) {
       if (str1[r-1] == str2[c-1]) {

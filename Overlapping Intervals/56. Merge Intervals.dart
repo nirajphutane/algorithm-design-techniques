@@ -4,6 +4,17 @@ void main(final List<String> args) {
   print(Solution().merge([[1,4],[4,5]])); // [[1,5]]
   print(Solution().merge([[4,7],[1,4]])); // [[1,7]]
   print(Solution().merge([[1,10],[2,3],[4,8]]));  // [[1, 10]]
+
+  print(Solution().merge([[1,2],[3,4],[5,6]]));                // [[1,2],[3,4],[5,6]]
+  print(Solution().merge([[1,5],[2,3],[6,8]]));                // [[1,5],[6,8]]
+  print(Solution().merge([[1,3],[4,6],[5,7]]));                // [[1,3],[4,7]]
+  print(Solution().merge([[1,3],[1,3],[1,3]]));                // [[1,3]]
+  print(Solution().merge([[1,4],[2,5],[7,9],[8,10]]));         // [[1,5],[7,10]]
+  print(Solution().merge([[5,6],[1,2],[3,4]]));                // [[1,2],[3,4],[5,6]]
+  print(Solution().merge([[5,10],[1,4],[6,8]]));               // [[1,4],[5,10]]
+  print(Solution().merge([[0,0],[1,4],[4,4]]));                // [[0,0],[1,4]]
+  print(Solution().merge([[-10,-1],[-5,0],[1,3]]));            // [[-10,0],[1,3]]
+  print(Solution().merge([[1,2]]));                            // [[1,2]]
 }
 
 class Solution {

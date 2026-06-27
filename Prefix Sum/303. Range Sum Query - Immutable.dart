@@ -33,22 +33,20 @@ void main(final List<String> args) {
 
 class NumArray {
 
-  final List<int> nums;
-  late final List<int> prefixSumArray;
+  late final List<int> prefixSum;
 
-  NumArray(this.nums) {
-    prefixSumArray = List.filled(nums.length, 0);
+  NumArray(final List<int> nums) {
+    prefixSum = List.filled(nums.length, 0);
 
-    prefixSumArray.first = nums.first;
+    prefixSum.first = nums.first;
     for (int i = 1; i < nums.length; i++) {
-      prefixSumArray[i] = prefixSumArray[i-1] + nums[i];
+      prefixSum[i] = prefixSum[i-1] + nums[i];
     }
   }
 
   int sumRange(final int left, final int right) {
-    if (left == 0) {
-      return prefixSumArray[right];
-    }
-    return prefixSumArray[right] - prefixSumArray[left-1];
+    if (left == 0) prefixSum[right];
+
+    return prefixSum[right] - prefixSum[left-1];
   }
 }

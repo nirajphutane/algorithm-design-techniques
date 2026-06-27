@@ -16,14 +16,10 @@ class Solution {
     int size = 0, zeroFrequency = 0;
 
     for (int l = 0, r = 0; r < nums.length; r++) {
-      if (nums[r] == 0) {
-        zeroFrequency++;
-      }
+      if (nums[r] == 0) zeroFrequency++;
 
       while (zeroFrequency > k) {
-        if (nums[l++] == 0) {
-          zeroFrequency--;
-        }
+        if (nums[l++] == 0) zeroFrequency--;
       }
 
       size = max(size, r-l+1);

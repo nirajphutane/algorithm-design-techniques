@@ -11,57 +11,14 @@ void main (final List<String> args) {
   print(Solution().findAllConcatenatedWordsInADict(['apple','pen','applepen','applepenapple'])); // ['applepen','applepenapple']
 }
 
-// class Solution {
-//   List<String> findAllConcatenatedWordsInADict(final List<String> words) {
-//
-//     final List<String> result = [];
-//
-//     final Set<String> set = words.toSet();
-//     final Map<String, bool> memo = {};
-//
-//     bool dp(final String word) {
-//       if (memo.containsKey(word)) return memo[word]!;
-//
-//       if (word.isEmpty) return false;
-//
-//       for (int i = 1; i < word.length; i++) {
-//         final String prefix = word.substring(0, i);
-//         final String suffix = word.substring(i);
-//
-//         if (set.contains(prefix) && set.contains(suffix)) {
-//           memo[word] = true;
-//           return true;
-//         };
-//
-//         if (!set.contains(suffix) && dp(suffix)) {
-//           memo[word] = true;
-//           return true;
-//         }
-//       }
-//
-//       memo[word] = false;
-//       return false;
-//     }
-//
-//     for (final String word in words) {
-//       set.remove(word);
-//       if (dp(word)) result.add(word);
-//       set.add(word);
-//     }
-//
-//     return result;
-//   }
-// }
-
 class Solution {
   List<String> findAllConcatenatedWordsInADict(final List<String> words) {
     final Set<String> set = words.toSet();
 
     final Map<String, bool> memo = {};
     bool dp(final String word) {
-      if (memo.containsKey(word)) {
-        return memo[word]!;
-      }
+      if (memo.containsKey(word)) return memo[word]!;
+
       for (int i = 1; i < word.length; i++) {
         final String prefix = word.substring(0, i);
         final String suffix = word.substring(i);
@@ -88,9 +45,7 @@ class Solution {
 
     final List<String> result = [];
     for (final String word in words) {
-      if (dp(word)) {
-        result.add(word);
-      }
+      if (dp(word)) result.add(word);
     }
 
     return result;

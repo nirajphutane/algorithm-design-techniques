@@ -21,31 +21,33 @@ void main(final List<String> args) {
 
 class Solution {
   int minSubArrayLen(final int target, final List<int> nums) {
-    int size = nums.length+1, sum = 0;
-
-    for (int l = 0, r = 0; r < nums.length; r++) {
+    int size = nums.length, l = 0, sum = 0;
+    for (int r = 0; r < nums.length; r++) {
       sum += nums[r];
-      while (sum >= target) {
+
+      while (sum >= target && r >= l) {
         size = min(size, r-l+1);
         sum -= nums[l++];
       }
     }
 
-    return size > nums.length? 0: size;
+    return l == 0? 0: size;
   }
-
-  /*int minSubArrayLen(final int target, final List<int> nums) {
-    int minSize = nums.length, l = 0, sum = 0;
-    for (int r = 0; r < nums.length; r++) {
-      sum += nums[r];
-
-      while (sum >= target && r >= l) {
-        minSize = min(minSize, r-l+1);
-        sum -= nums[l++];
-      }
-    }
-
-    return l == 0? 0: minSize;
-  }*/
-
 }
+
+// class Solution {
+//   int minSubArrayLen(final int target, final List<int> nums) {
+//     int size = nums.length+1, sum = 0;
+//
+//     for (int l = 0, r = 0; r < nums.length; r++) {
+//       sum += nums[r];
+//
+//       while (sum >= target) {
+//         size = min(size, r-l+1);
+//         sum -= nums[l++];
+//       }
+//     }
+//
+//     return size > nums.length? 0: size;
+//   }
+// }

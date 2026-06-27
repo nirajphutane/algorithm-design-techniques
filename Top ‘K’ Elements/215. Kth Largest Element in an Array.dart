@@ -17,33 +17,29 @@ void main(final List<String> args) {
 
 class Solution {
   int findKthLargest(final List<int> nums, final int k) {
-    return -1;
-  }
+    final int target = nums.length-k;
 
-  // int findKthLargest(final List<int> nums, final int k) {
-  //   final int target = nums.length-k;
-  //
-  //   int partitionIndex(final int low, final int high) {
-  //
-  //     void swap(final int i, final int j) {
-  //       final int tmp = nums[i];
-  //       nums[i] = nums[j];
-  //       nums[j] = tmp;
-  //     }
-  //
-  //     int partition = low;
-  //     for (int i = low; i < high; i++) {
-  //       if (nums[i] <= nums[high]) {
-  //         swap(i, partition++);
-  //       }
-  //     }
-  //     swap(partition, high);
-  //
-  //     if (target < partition) return partitionIndex(low, partition-1);
-  //     if (target > partition) return partitionIndex(partition+1, high);
-  //     return partition;
-  //   }
-  //
-  //   return nums[partitionIndex(0, nums.length-1)];
-  // }
+    int partitionIndex(final int low, final int high) {
+
+      void swap(final int i, final int j) {
+        final int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+      }
+
+      int partition = low;
+      for (int i = low; i < high; i++) {
+        if (nums[i] <= nums[high]) {
+          swap(i, partition++);
+        }
+      }
+      swap(partition, high);
+
+      if (target < partition) return partitionIndex(low, partition-1);
+      if (target > partition) return partitionIndex(partition+1, high);
+      return partition;
+    }
+
+    return nums[partitionIndex(0, nums.length-1)];
+  }
 }

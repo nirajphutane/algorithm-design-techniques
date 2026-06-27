@@ -34,30 +34,33 @@ class Solution {
 
     return result;
   }
-
-  // List<int> nextGreaterElement(final List<int> nums1, final List<int> nums2) {
-  //
-  //   final Map<int, int> map = {};
-  //   final List<int> monotonicStack = [];
-  //   for (int i = nums2.length-1; i >= 0; i--) {
-  //
-  //     while (monotonicStack.isNotEmpty && monotonicStack.last <= nums2[i]) {
-  //       monotonicStack.removeLast();
-  //     }
-  //
-  //     if (monotonicStack.isNotEmpty) {
-  //       map[nums2[i]] = monotonicStack.last;
-  //     } else {
-  //       map[nums2[i]] = -1;
-  //     }
-  //
-  //     monotonicStack.add(nums2[i]);
-  //   }
-  //
-  //   final List<int> result = List<int>.filled(nums1.length, -1);
-  //   for (int i = 0; i < nums1.length; i++) {
-  //     result[i] = map[nums1[i]]!;
-  //   }
-  //   return result;
-  // }
 }
+
+// class Solution {
+//
+//   List<int> nextGreaterElement(final List<int> nums1, final List<int> nums2) {
+//
+//     final Map<int, int> map = {};
+//     final List<int> monotonicStack = [];
+//     for (int i = nums2.length-1; i >= 0; i--) {
+//
+//       while (monotonicStack.isNotEmpty && monotonicStack.last <= nums2[i]) {
+//         monotonicStack.removeLast();
+//       }
+//
+//       if (monotonicStack.isNotEmpty) {
+//         map[nums2[i]] = monotonicStack.last;
+//       } else {
+//         map[nums2[i]] = -1;
+//       }
+//
+//       monotonicStack.add(nums2[i]);
+//     }
+//
+//     final List<int> result = List<int>.filled(nums1.length, -1);
+//     for (int i = 0; i < nums1.length; i++) {
+//       result[i] = map[nums1[i]]!;
+//     }
+//     return result;
+//   }
+// }

@@ -1,19 +1,47 @@
-void main() {
-  List<int> num1 = [1,2,3,0,0,0];
-  Solution().merge(num1, 3, [2,5,6], 3);  // [1,2,2,3,5,6]
-  print(num1);
+void main(final List<String> args) {
+  List<int> nums1 = [1,2,3,0,0,0];
+  Solution().merge(nums1, 3, [2,5,6], 3);  // [1,2,2,3,5,6]
+  print(nums1);
 
-  num1 = [2,5,6,0,0,0];
-  Solution().merge(num1, 3, [1, 2, 3], 3);  // [1,2,2,3,5,6]
-  print(num1);
+  nums1 = [2,5,6,0,0,0];
+  Solution().merge(nums1, 3, [1, 2, 3], 3);  // [1,2,2,3,5,6]
+  print(nums1);
 
-  num1 = [1];
-  Solution().merge(num1, 1, [], 0); // [1]
-  print(num1);
+  nums1 = [1];
+  Solution().merge(nums1, 1, [], 0); // [1]
+  print(nums1);
 
-  num1 = [0];
-  Solution().merge(num1, 0, [1], 1);  // [1]
-  print(num1);
+  nums1 = [0];
+  Solution().merge(nums1, 0, [1], 1);  // [1]
+  print(nums1);
+
+  nums1 = [0,0,0,0];
+  Solution().merge(nums1, 0, [1,2,3,4], 4);  // [1,2,3,4]
+  print(nums1);
+
+  nums1 = [1,2,3,0,0,0,0];
+  Solution().merge(nums1, 3, [0,4,5,6], 4);  // [0,1,2,3,4,5,6]
+  print(nums1);
+
+  nums1 = [1,1,1,0,0,0];
+  Solution().merge(nums1, 3, [1,1,1], 3);    // [1,1,1,1,1,1]
+  print(nums1);
+
+  nums1 = [5,6,7,0,0,0];
+  Solution().merge(nums1, 3, [1,2,3], 3);    // [1,2,3,5,6,7]
+  print(nums1);
+
+  nums1 = [1,3,5,0,0,0,0];
+  Solution().merge(nums1, 3, [2,4,6,7], 4);  // [1,2,3,4,5,6,7]
+  print(nums1);
+
+  nums1 = [0,0,0];
+  Solution().merge(nums1, 0, [1,2,3], 3);    // [1,2,3]
+  print(nums1);
+
+  nums1 = [1,2,3,0,0,0,0,0];
+  Solution().merge(nums1, 3, [1,2,3,4,5], 5); // [1,1,2,2,3,3,4,5]
+  print(nums1);
 }
 
 class Solution {

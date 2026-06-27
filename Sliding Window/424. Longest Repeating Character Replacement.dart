@@ -48,29 +48,32 @@ class Solution {
 
     return result;
   }
-
-  // int characterReplacement(final String s, final int k) {
-  //   int result = 0;
-  //
-  //   int maxFrequency = 0;
-  //   final Map<String, int> frequency = {};
-  //   for (int l = 0, r = 0; r < s.length; r++) {
-  //    final String char = s[r];
-  //    frequency[char] = (frequency[char]?? 0) + 1;
-  //
-  //    maxFrequency = max(maxFrequency, frequency[char]!);
-  //    while ((r-l+1)-maxFrequency > k) {
-  //      final String char = s[l];
-  //      frequency[char] = frequency[char]! - 1;
-  //      if (frequency[char] == 0) {
-  //        frequency.remove(char);
-  //      }
-  //      l++;
-  //    }
-  //
-  //    result = max(result, r-l+1);
-  //  }
-  //
-  //   return result;
-  // }
 }
+
+// class Solution {
+//
+//   int characterReplacement(final String s, final int k) {
+//     int result = 0;
+//
+//     int maxFrequency = 0;
+//     final Map<String, int> frequency = {};
+//     for (int l = 0, r = 0; r < s.length; r++) {
+//       final String char = s[r];
+//       frequency[char] = (frequency[char]?? 0) + 1;
+//
+//       maxFrequency = max(maxFrequency, frequency[char]!);
+//       while ((r-l+1)-maxFrequency > k) {
+//         final String char = s[l];
+//         frequency[char] = frequency[char]! - 1;
+//         if (frequency[char] == 0) {
+//           frequency.remove(char);
+//         }
+//         l++;
+//       }
+//
+//       result = max(result, r-l+1);
+//     }
+//
+//     return result;
+//   }
+// }

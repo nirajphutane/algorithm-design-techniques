@@ -9,7 +9,7 @@ void main(final List<String> args) {;
   print(Solution().findAnagrams('abc', 'abc'));  // [0]
   print(Solution().findAnagrams('abababab', 'aabb'));  // [0, 1, 2, 3, 4]
   print(Solution().findAnagrams('eidbaooo', 'ab'));  // [3]
-  print(Solution().findAnagrams('abc', 'abcd'));  // [2]
+  print(Solution().findAnagrams('abc', 'abcd'));  // []
   print(Solution().findAnagrams('eidboaoo', 'ab'));  // []
 }
 
@@ -77,12 +77,9 @@ class Solution {
 //     return result;
 //   }
 //
-//   bool _isAnagram(final Map<String, int> pCount,
-//       final Map<String, int> sCount) {
+//   bool _isAnagram(final Map<String, int> pCount, final Map<String, int> sCount) {
 //     for (final String key in pCount.keys) {
-//       if (pCount[key] != sCount[key]) {
-//         return false;
-//       }
+//       if (pCount[key] != sCount[key]) return false;
 //     }
 //     return true;
 //   }
