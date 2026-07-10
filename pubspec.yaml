@@ -1,0 +1,10 @@
+name: algorithm_design_techniques
+description: Project
+version: 1.0.0
+
+environment:
+  sdk: ^3.2.2
+
+dependencies:
+  collection: ^1.18.0
+

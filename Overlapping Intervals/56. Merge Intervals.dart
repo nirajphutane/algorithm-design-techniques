@@ -1,4 +1,6 @@
 
+import 'dart:math';
+
 void main(final List<String> args) {
   print(Solution().merge([[1,3],[2,6],[8,10],[15,18]])); // [[1,6],[8,10],[15,18]]
   print(Solution().merge([[1,4],[4,5]])); // [[1,5]]
@@ -19,23 +21,43 @@ void main(final List<String> args) {
 
 class Solution {
   List<List<int>> merge(final List<List<int>> intervals) {
-    final List<List<int>> result = [];
+    final List<List<int>> merged = [];
 
-    intervals.sort((a,b) => a.first.compareTo(b.first));
+    intervals.sort((a, b) => a.first - b.first);
+
     List<int> previous = intervals.first;
     for (int i = 1; i < intervals.length; i++) {
-      final List<int> current = intervals[i];
-      if (current.first <= previous.last) {   // if (interval.first <= intervals[i].first && intervals[i].first <= interval.last) {
-        if (previous.last < current.last) {
-          previous.last = current.last;
-        }
+      if (intervals[i].first <= previous.last) {
+        previous = [previous.first, max(previous.last, intervals[i].last)];
       } else {
-        result.add(previous);
-        previous = current;
+        merged.add(previous);
+        previous = intervals[i];
       }
     }
-    result.add(previous);
-
-    return result;
+    merged.add(previous);
+    return merged;
   }
 }
+
+// class Solution {
+//   List<List<int>> merge(final List<List<int>> intervals) {
+//     final List<List<int>> result = [];
+//
+//     intervals.sort((a,b) => a.first.compareTo(b.first));
+//     List<int> previous = intervals.first;
+//     for (int i = 1; i < intervals.length; i++) {
+//       final List<int> current = intervals[i];
+//       if (current.first <= previous.last) {   // if (interval.first <= intervals[i].first && intervals[i].first <= interval.last) {
+//         if (previous.last < current.last) {
+//           previous.last = current.last;
+//         }
+//       } else {
+//         result.add(previous);
+//         previous = current;
+//       }
+//     }
+//     result.add(previous);
+//
+//     return result;
+//   }
+// }

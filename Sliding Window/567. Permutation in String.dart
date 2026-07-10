@@ -40,37 +40,77 @@ class Solution {
 
     if (s1.length > s2.length) return false;
 
-    final Map<String, int> s1Map = {};
+    if(s1.isEmpty) return true;
+
+    final Map<String, int> s1Count = {};
     for (int i = 0; i < s1.length; i++) {
-      s1Map[s1[i]] = (s1Map[s1[i]]?? 0) +1;
+      s1Count[s1[i]] = (s1Count[s1[i]]?? 0) +1;
     }
 
-    int count = 0;
-    final Map<String, int> s2Map = {};
-    for (int i = 0; i < s1.length; i++) {
-      s2Map[s2[i]] = (s2Map[s2[i]]?? 0) +1;
-      if (s1Map[s2[i]] == s2Map[s2[i]]) count++;
-    }
-
-    if (count == s1Map.length) return true;
-
-    for (int i = s1.length; i < s2.length; i++) {
-
-      if (s1Map[s2[i-s1.length]] == s2Map[s2[i-s1.length]]) count--;
-      s2Map[s2[i-s1.length]] = s2Map[s2[i-s1.length]]! - 1;
-      if (s2Map[s2[i-s1.length]] == 0) s2Map.remove(s2[i-s1.length]);
-
-      s2Map[s2[i]] = (s2Map[s2[i]]?? 0) +1;
-      if (s1Map[s2[i]] == s2Map[s2[i]]) {
-        count++;
+    int have = s1Count.length;
+    final Map<String, int> s2Count = {};
+    for (int l = 0, r = 0; r < s2.length; r++) {
+      if (s1Count.containsKey(s2[r])) {
+        s2Count[s2[r]] = (s2Count[s2[r]]?? 0) +1;
+        if (s1Count[s2[r]] == s2Count[s2[r]]) {
+          have--;
+        }
       }
 
-      if (count == s1Map.length) return true;
+      while (have == 0) {
+        if (r-l+1 == s1.length) return true;
+
+        if (s2Count.containsKey(s2[l])) {
+          if (s1Count[s2[l]] == s2Count[s2[l]]) {
+            have++;
+          }
+          s2Count[s2[l]] = s2Count[s2[l]]! - 1;
+        }
+        l++;
+      }
     }
 
     return false;
   }
 }
+
+// class Solution {
+//
+//   bool checkInclusion(final String s1, final String s2) {
+//
+//     if (s1.length > s2.length) return false;
+//
+//     final Map<String, int> s1Map = {};
+//     for (int i = 0; i < s1.length; i++) {
+//       s1Map[s1[i]] = (s1Map[s1[i]]?? 0) +1;
+//     }
+//
+//     int count = 0;
+//     final Map<String, int> s2Map = {};
+//     for (int i = 0; i < s1.length; i++) {
+//       s2Map[s2[i]] = (s2Map[s2[i]]?? 0) +1;
+//       if (s1Map[s2[i]] == s2Map[s2[i]]) count++;
+//     }
+//
+//     if (count == s1Map.length) return true;
+//
+//     for (int i = s1.length; i < s2.length; i++) {
+//
+//       if (s1Map[s2[i-s1.length]] == s2Map[s2[i-s1.length]]) count--;
+//       s2Map[s2[i-s1.length]] = s2Map[s2[i-s1.length]]! - 1;
+//       if (s2Map[s2[i-s1.length]] == 0) s2Map.remove(s2[i-s1.length]);
+//
+//       s2Map[s2[i]] = (s2Map[s2[i]]?? 0) +1;
+//       if (s1Map[s2[i]] == s2Map[s2[i]]) {
+//         count++;
+//       }
+//
+//       if (count == s1Map.length) return true;
+//     }
+//
+//     return false;
+//   }
+// }
 
 /*class Solution {
 

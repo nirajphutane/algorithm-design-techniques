@@ -18,19 +18,19 @@ void main(final List<String> args) {
 
 class Solution {
   List<int> productExceptSelf(final List<int> nums) {
-    final List<int> result = List.filled(nums.length, 1);
+    final List<int> prefixSum = List<int>.filled(nums.length, 1);
 
     for (int i = 1; i < nums.length; i++) {
-      result[i] = result[i-1] * nums[i-1];
+      prefixSum[i] = prefixSum[i-1] * nums[i-1];
     }
 
-    int suffix = 1;
+    int suffixSum = 1;
     for (int i = nums.length-2; i >= 0; i--) {
-      suffix *= nums[i+1];
-      result[i] *= suffix;
+      suffixSum *= nums[i+1];
+      prefixSum[i] *= suffixSum;
     }
 
-    return result;
+    return prefixSum;
   }
 }
 

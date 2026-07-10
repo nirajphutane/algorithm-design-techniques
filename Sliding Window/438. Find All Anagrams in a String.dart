@@ -11,9 +11,58 @@ void main(final List<String> args) {;
   print(Solution().findAnagrams('eidbaooo', 'ab'));  // [3]
   print(Solution().findAnagrams('abc', 'abcd'));  // []
   print(Solution().findAnagrams('eidboaoo', 'ab'));  // []
+  print(Solution().findAnagrams('aaab', 'ab'));        // [2]
+  print(Solution().findAnagrams('aaaaa', 'aa'));       // [0, 1, 2, 3]
+  print(Solution().findAnagrams('abab', 'aab'));       // [0]
+  print(Solution().findAnagrams('abcabc', 'cab'));     // [0, 1, 2, 3]
+  print(Solution().findAnagrams('aaaaaaaa', 'aaa'));   // [0, 1, 2, 3, 4, 5]
+
+
 }
 
 class Solution {
+
+  List<int> findAnagrams(final String s, final String p) {
+
+    final List<int> anagrams = [];
+
+    final Map<String, int> pCount = {};
+    for (int i = 0; i < p.length; i++) {
+      pCount[p[i]] = (pCount[p[i]]?? 0) +1;
+    }
+
+    int have = pCount.length;
+    final Map<String, int> sCounts = {};
+    for (int l = 0, r = 0; r < s.length; r++) {
+
+      if (pCount.containsKey(s[r])) {
+        sCounts[s[r]] = (sCounts[s[r]]?? 0) +1;
+        if (pCount[s[r]]! == sCounts[s[r]]) {
+          have--;
+        }
+      }
+
+      while (have == 0) {
+        if(r-l+1 == p.length) {
+          anagrams.add(r-p.length+1);
+        }
+
+        if (sCounts.containsKey(s[l])) {
+          if (pCount[s[l]]! == sCounts[s[l]]) {
+            have++;
+          }
+          sCounts[s[l]] = sCounts[s[l]]! -1;
+        }
+
+        l++;
+      }
+    }
+
+    return anagrams;
+  }
+}
+
+/*class Solution {
 
   List<int> findAnagrams(final String s, final String p) {
     if (p.length > s.length) return [];
@@ -46,7 +95,7 @@ class Solution {
     }
     return true;
   }
-}
+}*/
 
 // class Solution {
 //   List<int> findAnagrams(final String s, final String p) {

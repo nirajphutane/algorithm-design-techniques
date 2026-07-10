@@ -13,14 +13,18 @@ void main(final List<String> args) {
 class Solution {
 
   int subarraySum(final List<int> nums, final int k) {
+
     int count = 0, prefixSum = 0;
     final Map<int, int> frequency = {prefixSum: 1};
+
     for (final int num in nums) {
       prefixSum += num;
+
       final int sub = prefixSum - k;
       if (frequency.containsKey(sub)) {
         count += frequency[sub]!;
       }
+
       frequency[prefixSum] = (frequency[prefixSum]?? 0) + 1;
     }
     return count;

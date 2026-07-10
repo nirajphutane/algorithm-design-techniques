@@ -20,15 +20,18 @@ void main(final List<String> args) {
 class Solution {
 
   int subarraysDivByK(final List<int> nums, final int k) {
+
     int count = 0, prefixSum = 0;
     final Map<int, int> seed = {prefixSum: 1};
 
     for (final int num in nums) {
       prefixSum += num;
+
       final int reminder = prefixSum % k;
       if (seed.containsKey(reminder)) {
         count += seed[reminder]!;
       }
+
       seed[reminder] = (seed[reminder]?? 0) + 1;
     }
 

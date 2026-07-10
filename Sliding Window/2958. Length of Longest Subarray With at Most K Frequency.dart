@@ -5,17 +5,18 @@ void main(final List<String> args) {
   print(Solution().maxSubarrayLength([1,2,3,1,2,3,1,2], 2)); // 6
   print(Solution().maxSubarrayLength([1,2,1,2,1,2,1,2], 1)); // 2
   print(Solution().maxSubarrayLength([5,5,5,5,5,5,5], 4));   // 4
-  print(Solution().maxSubarrayLength([1,2,3,1,2,3,1], 1));   // 3
-  print(Solution().maxSubarrayLength([1], 1));               // 1
-  print(Solution().maxSubarrayLength([1,1,1,1], 2));         // 2
-  print(Solution().maxSubarrayLength([1,2,3,4,5], 1));       // 5
-  print(Solution().maxSubarrayLength([1,2,2,3,3,3,2,2,1], 2)); // 5
-  print(Solution().maxSubarrayLength([1,2,1,2,1,2,1], 1));   // 2
-  print(Solution().maxSubarrayLength([7,7,8,8,7,8,8,7], 2)); // 4
-  print(Solution().maxSubarrayLength([5,1,3,5,2,3,4,1], 2)); // 8
-  print(Solution().maxSubarrayLength([1,2,3,2,2,3,3,3,2], 2)); // 4
+
   print(Solution().maxSubarrayLength([1,2,3], 0));           // 0
   print(Solution().maxSubarrayLength([], 1));                // 0
+  print(Solution().maxSubarrayLength([1], 1));               // 1
+  print(Solution().maxSubarrayLength([1,1,1,1], 2));         // 2
+  print(Solution().maxSubarrayLength([1,2,1,2,1,2,1], 1));   // 2
+  print(Solution().maxSubarrayLength([1,2,3,1,2,3,1], 1));   // 3
+  print(Solution().maxSubarrayLength([7,7,8,8,7,8,8,7], 2)); // 4
+  print(Solution().maxSubarrayLength([1,2,3,2,2,3,3,3,2], 2)); // 4
+  print(Solution().maxSubarrayLength([1,2,3,4,5], 1));       // 5
+  print(Solution().maxSubarrayLength([1,2,2,3,3,3,2,2,1], 2)); // 5
+  print(Solution().maxSubarrayLength([5,1,3,5,2,3,4,1], 2)); // 8
   print(Solution().maxSubarrayLength([1,3,1,3,1,3,1,3,1], 4)); // 8
 }
 

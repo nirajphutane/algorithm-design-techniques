@@ -14,24 +14,24 @@ void main(final List<String> args) {
 
 class Solution {
   int totalFruit(final List<int> fruits) {
-    int result = 0;
 
-    final Map<int, int> countMap = {};
+    int totalFruits = 0;
+    final Map<int, int> treeCount = {};
     for (int l = 0, r = 0; r < fruits.length; r++) {
-      countMap[fruits[r]] = (countMap[fruits[r]]?? 0) + 1;
+      treeCount[fruits[r]] = (treeCount[fruits[r]]?? 0) +1;
 
-      while (countMap.keys.length > 2) {
-        countMap[fruits[l]] = countMap[fruits[l]]! - 1;
-        if (countMap[fruits[l]] == 0) {
-          countMap.remove(fruits[l]);
+      while (treeCount.length > 2) {
+        treeCount[fruits[l]] = treeCount[fruits[l]]! -1;
+        if (treeCount[fruits[l]] == 0) {
+          treeCount.remove(fruits[l]);
         }
         l++;
       }
 
-      result = max(result, r-l+1);
+      totalFruits = max(totalFruits, r-l+1);
     }
 
-    return result;
+    return totalFruits;
   }
 }
 

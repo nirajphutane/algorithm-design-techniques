@@ -1,7 +1,7 @@
 
 import 'dart:math';
 
-void main() {
+void main(final List<String> args) {
   print(Solution().lengthOfLongestSubstring('abcabcbb')); // 3
   print(Solution().lengthOfLongestSubstring('bbbbb'));  // 1
   print(Solution().lengthOfLongestSubstring('pwwkew')); // 3

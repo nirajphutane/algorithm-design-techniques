@@ -30,19 +30,19 @@ class Solution {
 
   bool checkSubarraySum(final List<int> nums, final int k) {
     final int minLen = 2;
-    final Map<int, int> map = {0: 1-minLen};
     int prefixSum = 0;
+    final Map<int, int> positions = {prefixSum: 1-minLen};
 
     for (int i = 0; i < nums.length; i++) {
       prefixSum += nums[i];
       final int reminder = prefixSum % k;
 
-      if (map.containsKey(reminder)) {
-        if (i - map[reminder]! >= minLen) {
+      if (positions.containsKey(reminder)) {
+        if (i - positions[reminder]! >= minLen) {
           return true;
         }
       } else {
-        map[reminder] = i;
+        positions[reminder] = i;
       }
     }
 
